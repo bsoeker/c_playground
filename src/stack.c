@@ -12,7 +12,7 @@ Stack *stack_create(size_t cap) {
 }
 
 static int resize(Stack *s, size_t newCap) {
-    char *tmp = realloc(s->data, newCap * sizeof(int));
+    int *tmp = realloc(s->data, newCap * sizeof(int));
     if (!tmp) {
         printf("realloc() failed!");
         return 0;
@@ -25,7 +25,7 @@ static int resize(Stack *s, size_t newCap) {
 
 void stack_push(Stack *s, int value) {
     if (s->size == s->cap)
-        if (!resize(s, 2))
+        if (!resize(s, s->cap * 2))
             return;
 
     s->data[s->size++] = value;

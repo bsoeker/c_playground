@@ -1,12 +1,13 @@
+#include "stack.h"
 #include <stdio.h>
 
-void say_Hello(char *str) { printf("Hello %s\n", str); }
-
 int main(int argc, char *argv[]) {
-    char *str = "ChatGPT";
-    say_Hello(str);
+    Stack *s = stack_create(10);
+    for (int i = 0; i < 10; i++)
+        stack_push(s, (i + 1) * 10);
 
-    printf("Do some other stuff in main");
+    while (!isEmpty(s))
+        printf("%d\n", stack_pop(s));
 
     return 0;
 }
