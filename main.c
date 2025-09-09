@@ -1,13 +1,13 @@
-#include "stack.h"
+#include "my_strlib.h"
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
-    Stack *s = stack_create(10);
-    for (int i = 0; i < 10; i++)
-        stack_push(s, (i + 1) * 10);
+    char buffer[1024];
+    printf("%s\n", my_strcpy(buffer, "Hello"));
 
-    while (!isEmpty(s))
-        printf("%d\n", stack_pop(s));
+    char *s = my_strcat(buffer, ", World!\n");
+
+    printf("%d\n", my_strcmp(buffer, s));
 
     return 0;
 }
