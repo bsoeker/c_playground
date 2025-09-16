@@ -28,10 +28,21 @@ build/%.o: %.c | build
 build:
 	mkdir -p build
 
+# -----------------------------
+# Extra: OpenGL build
+# -----------------------------
+opengl: build/triangle
+
+build/triangle: main.c | build
+	$(CC) $(CFLAGS) main.c -lGL -lglut -lm -o $@
+
+# -----------------------------
+# Housekeeping
+# -----------------------------
 clean:
 	rm -rf build
 
 -include $(DEP)
 
-.PHONY: all clean build
+.PHONY: all clean build opengl
 

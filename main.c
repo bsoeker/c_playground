@@ -1,13 +1,19 @@
-#include "my_strlib.h"
+#include "generic_list.h"
 #include <stdio.h>
+#include <stdlib.h>
+
+DEFINE_LIST_TYPE(int, int)
 
 int main(int argc, char *argv[]) {
-    char buffer[1024];
-    printf("%s\n", my_strcpy(buffer, "Hello"));
+    int_list *l = malloc(sizeof(*l));
+    int_init(l);
+    int_append(l, 10);
 
-    char *s = my_strcat(buffer, ", World!\n");
+    int *p = malloc(4);
 
-    printf("%d\n", my_strcmp(buffer, s));
+    int_pop_front(l, p);
+
+    printf("%d\n", *p);
 
     return 0;
 }
