@@ -37,6 +37,12 @@ build/triangle: main.c | build
 	$(CC) $(CFLAGS) main.c -lGL -lglut -lm -o $@
 
 # -----------------------------
+# Run the program
+# -----------------------------
+run: $(OUT)
+	./$(OUT)
+
+# -----------------------------
 # Housekeeping
 # -----------------------------
 clean:
