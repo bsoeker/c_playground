@@ -13,7 +13,7 @@
 
 #define D_LL_EXIT_IF_IS_EMPTY(d_ll, retval)                                    \
   do {                                                                         \
-    if (d_ll_is_empty(d_ll)) {                                                \
+    if (d_ll_is_empty(d_ll)) {                                                 \
       fprintf(stderr, "List is empty!\n");                                     \
       return (retval);                                                         \
     }                                                                          \
@@ -145,6 +145,24 @@ d_ll_status_t d_ll_peek_tail(const doubly_linked_list_t* d_ll, int* value) {
 
   *value = d_ll->tail->value;
   return D_LL_OK;
+}
+
+void d_ll_clear(doubly_linked_list_t* d_ll) {
+  node_t* cur = d_ll->head;
+
+  while (cur) {
+    node_t* next = cur->next;
+    free(cur);
+    cur = next;
+  }
+
+  d_ll->head = d_ll->tail = NULL;
+  d_ll->size = 0;
+}
+
+void d_ll_free(doubly_linked_list_t* d_ll) {
+  d_ll_clear(d_ll);
+  free(d_ll);
 }
 
 size_t d_ll_get_size(const doubly_linked_list_t* d_ll) {

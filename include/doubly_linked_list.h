@@ -20,6 +20,9 @@ d_ll_status_t d_ll_pop_tail(doubly_linked_list_t* d_ll, int* value);
 d_ll_status_t d_ll_peek_head(const doubly_linked_list_t* d_ll, int* value);
 d_ll_status_t d_ll_peek_tail(const doubly_linked_list_t* d_ll, int* value);
 
+void d_ll_clear(doubly_linked_list_t* d_ll);
+void d_ll_free(doubly_linked_list_t* d_ll);
+
 size_t d_ll_get_size(const doubly_linked_list_t* d_ll);
 static inline int d_ll_is_empty(const doubly_linked_list_t* d_ll) {
   return d_ll_get_size(d_ll) == 0;

@@ -60,5 +60,8 @@ int main(void) {
   printf("\n=== FINAL CLEANUP ===\n");
   print_state(list);
 
+  d_ll_clear(list);
+  print_state(list);
+
   return 0;
 }
