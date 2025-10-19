@@ -3,14 +3,14 @@
 
 #include <stddef.h>
 
+typedef struct doubly_linked_list doubly_linked_list_t;
+
 typedef enum {
   D_LL_OK = 0,         // success
   D_LL_ERR_NULL = -1,  // NULL pointer passed
   D_LL_ERR_EMPTY = -2, // list empty
   D_LL_ERR_ALLOC = -3  // malloc() failed
 } d_ll_status_t;
-
-typedef struct doubly_linked_list doubly_linked_list_t;
 
 doubly_linked_list_t* d_ll_create();
 d_ll_status_t d_ll_push_head(doubly_linked_list_t* d_ll, int value);

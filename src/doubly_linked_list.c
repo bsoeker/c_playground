@@ -11,7 +11,7 @@
     }                                                                          \
   } while (0)
 
-#define D_LL_EXIT_IF_IS_EMPTY(d_ll, retval)                                    \
+#define D_LL_EXIT_IF_EMPTY(d_ll, retval)                                    \
   do {                                                                         \
     if (d_ll_is_empty(d_ll)) {                                                 \
       fprintf(stderr, "List is empty!\n");                                     \
@@ -24,7 +24,6 @@ typedef struct node {
   int value;
   struct node* next;
   struct node* prev;
-
 } node_t;
 
 struct doubly_linked_list {
@@ -98,7 +97,7 @@ d_ll_status_t d_ll_push_tail(doubly_linked_list_t* d_ll, int value) {
 // [0 1]
 d_ll_status_t d_ll_pop_head(doubly_linked_list_t* d_ll, int* value) {
   D_LL_CHECK_PTR_RET(d_ll, D_LL_ERR_NULL);
-  D_LL_EXIT_IF_IS_EMPTY(d_ll, D_LL_ERR_EMPTY);
+  D_LL_EXIT_IF_EMPTY(d_ll, D_LL_ERR_EMPTY);
 
   *value = d_ll->head->value;
 
@@ -116,7 +115,7 @@ d_ll_status_t d_ll_pop_head(doubly_linked_list_t* d_ll, int* value) {
 }
 d_ll_status_t d_ll_pop_tail(doubly_linked_list_t* d_ll, int* value) {
   D_LL_CHECK_PTR_RET(d_ll, D_LL_ERR_NULL);
-  D_LL_EXIT_IF_IS_EMPTY(d_ll, D_LL_ERR_EMPTY);
+  D_LL_EXIT_IF_EMPTY(d_ll, D_LL_ERR_EMPTY);
 
   *value = d_ll->tail->value;
 
@@ -134,14 +133,14 @@ d_ll_status_t d_ll_pop_tail(doubly_linked_list_t* d_ll, int* value) {
 }
 d_ll_status_t d_ll_peek_head(const doubly_linked_list_t* d_ll, int* value) {
   D_LL_CHECK_PTR_RET(d_ll, D_LL_ERR_NULL);
-  D_LL_EXIT_IF_IS_EMPTY(d_ll, D_LL_ERR_EMPTY);
+  D_LL_EXIT_IF_EMPTY(d_ll, D_LL_ERR_EMPTY);
 
   *value = d_ll->head->value;
   return D_LL_OK;
 }
 d_ll_status_t d_ll_peek_tail(const doubly_linked_list_t* d_ll, int* value) {
   D_LL_CHECK_PTR_RET(d_ll, D_LL_ERR_NULL);
-  D_LL_EXIT_IF_IS_EMPTY(d_ll, D_LL_ERR_EMPTY);
+  D_LL_EXIT_IF_EMPTY(d_ll, D_LL_ERR_EMPTY);
 
   *value = d_ll->tail->value;
   return D_LL_OK;
