@@ -37,6 +37,13 @@ build/triangle: main.c | build
 	$(CC) $(CFLAGS) main.c -lGL -lglut -lm -o $@
 
 # -----------------------------
+# Debug
+# -----------------------------
+
+debug: CFLAGS += -g -O0
+debug: $(OUT)
+
+# -----------------------------
 # Run the program
 # -----------------------------
 run: $(OUT)
